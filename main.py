@@ -1,4 +1,6 @@
+import os
 import sys
+from pathlib import Path
 
 import pygame
 
@@ -12,7 +14,9 @@ ballPosition = pygame.Vector2(0, 0)
 ballVector = pygame.Vector2(1, 1)
 
 clock = pygame.time.Clock()
-surf = pygame.image.load(r'assets\images\email icon.png')
+p = Path(os.getcwd()) / r'assets\images\email icon.png'
+print('p=', p)
+surf = pygame.image.load(str(p))
 surf = pygame.transform.scale(surf, (50, 50))
 while True:
     for event in pygame.event.get():
