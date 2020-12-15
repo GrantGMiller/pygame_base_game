@@ -12,6 +12,8 @@ ballPosition = pygame.Vector2(0, 0)
 ballVector = pygame.Vector2(1, 1)
 
 clock = pygame.time.Clock()
+surf = pygame.image.load(r'assets\images\email icon.png')
+surf = pygame.transform.scale(surf, (50, 50))
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -26,11 +28,9 @@ while True:
     if ballPosition.y < 0 or ballPosition.y > screen.get_height():
         ballVector.y *= -1
 
-    pygame.draw.circle(
-        screen,
-        color=(0, 200, 0),
-        center=ballPosition,
-        radius=25,
+    screen.blit(
+        surf,
+        ballPosition,
     )
 
     pygame.display.flip()
